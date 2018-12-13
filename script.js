@@ -154,7 +154,7 @@ function displayQuiz(questions, quizContainer, resultsContainer, submitButton){
         // display results with message based on how well the user answered
             resultsWrapper.style="display: flex;"
             document.body.classList.add("noScroll");
-            document.getElementsByTagName('html')[0].style.overflow = "hidden";
+            document.getElementsByTagName('html')[0].classList.add("noScroll");
         if(numCorrect > questions.length/2) {
             resultsContainer.innerHTML = 'You got ' + numCorrect + '/' + questions.length +' correct.<br>Awesome work!';
         } else {
@@ -164,7 +164,7 @@ function displayQuiz(questions, quizContainer, resultsContainer, submitButton){
         closeResults.onclick = function(){
             resultsWrapper.style="display: none;"
             document.body.classList.remove("noScroll");
-            document.getElementsByTagName('html')[0].style.overflow = "scroll";
+            document.getElementsByTagName('html')[0].classList.remove("noScroll");
     }
 
     }
