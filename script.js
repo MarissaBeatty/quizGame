@@ -70,7 +70,9 @@
 ];
 
 var quizContainer = document.getElementById('quiz');
+var resultsWrapper = document.getElementById('results-wrapper');
 var resultsContainer = document.getElementById('results');
+var closeResults = document.getElementById('popupCloseButton');
 var submitButton = document.getElementById('submit');
 
 displayQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
@@ -149,8 +151,20 @@ function displayQuiz(questions, quizContainer, resultsContainer, submitButton){
             }
         }
 
-        // show number of correct answers out of total
-        resultsContainer.innerHTML = 'You got <br>' + numCorrect + '/' + questions.length +'<br>correct!';
+        // display results with message based on how well the user answered
+            resultsWrapper.style="display: flex;"
+            document.body.classList.add("noScroll");
+        if(numCorrect > questions.length/2) {
+            resultsContainer.innerHTML = 'You got ' + numCorrect + '/' + questions.length +' correct.<br>Awesome work!';
+        } else {
+            resultsContainer.innerHTML = 'You got ' + numCorrect + '/' + questions.length +' correct.<br>Keep trying, you\'ll get there!';
+        }
+
+        closeResults.onclick = function(){
+            resultsWrapper.style="display: none;"
+            document.body.classList.remove("noScroll");
+    }
+
     }
 
     // show questions right away

@@ -4,6 +4,10 @@ body {
 	color: #444;
 }
 
+body.noScroll {
+  overflow: hidden;
+}
+
 /*some general classes */
 .flex-center {
 	display: flex;
@@ -101,10 +105,34 @@ h1 {
 	background-color: #dc9609;
 }
 
+#results-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0,0,0,0.5);
+	flex-direction: column;
+	display: none;
+}
+
 #results {
 	padding: 50px 0;
+	width: 60vw;
 	font-size: 3rem;
 	text-align: center;
+	background-color: #fff;
+	border-radius: 6px;
+	display: inline-block;
+	position: relative;
+}
+
+#popupCloseButton {
+	padding: 20px 0;
+	width: 58vw;
+	text-align: right;
+	margin-bottom: -50px;
+	z-index: 500;
 }
 
 @media screen and (min-width: 992px) {
